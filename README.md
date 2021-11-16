@@ -1,0 +1,2 @@
+# Rusty
+Discord music bot
