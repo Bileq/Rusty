@@ -1,7 +1,9 @@
-module.exports = {
+import { Message } from "discord.js";
+
+export default {
     name: 'play',
     description: "Play music",
-    execute(msg, args) {
+    execute(msg: Message, args: any) {
         msg.channel.send('Still not working LMAO')
     }
-}
+} 

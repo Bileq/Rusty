@@ -5,8 +5,8 @@
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/bot.js",
-    "dev": "nodemon ./src/bot.js" 
+    "start": "node-ts ./src/bot.ts",
+    "dev": "nodemon ./src/bot.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,10 @@
   "dependencies": {
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
   }
 }

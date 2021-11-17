@@ -1,3 +1,5 @@
+import { Message } from "discord.js";
+
 require("dotenv").config();
 
 const { Client, Intents } = require("discord.js");
@@ -9,21 +11,20 @@ const PREFIX = "!";
 
 bot.commands = new Discord.Collection
 
+
 //collection of commands
 const fs = require('fs');
-
 const commandsFiles = fs.readdirSync('src/commands/')
-   .filter(file => file.endsWith(".js"));
+   .filter((file: string) => file.endsWith(".js"));
 
 
 for (const file of commandsFiles) {
    const commandFile = require(`./commands/${file}`);
    bot.commands.set(commandFile.name, commandFile);
-   console.log(bot.commands)
 }
 
 //commands handling
-bot.on("messageCreate", msg => {
+bot.on("messageCreate", (msg: Message) => {
    if (msg.author.bot) return;
    if (msg.content.startsWith(PREFIX)) {
       const [command, ...args] = msg.content
