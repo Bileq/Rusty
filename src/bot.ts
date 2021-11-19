@@ -1,47 +1,13 @@
-import { Message } from "discord.js";
+const { Client, Intents, Collection } = require("discord.js");
+import "dotenv/config";
 
-require("dotenv").config();
-
-const { Client, Intents } = require("discord.js");
-const Discord = require("discord.js");
-const bot = new Client({
+export const bot = new Client({
    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
-const PREFIX = "!";
+bot.commands = new Collection();
 
-bot.commands = new Discord.Collection
-
-
-//collection of commands
-const fs = require('fs');
-const commandsFiles = fs.readdirSync('src/commands/')
-   .filter((file: string) => file.endsWith(".ts"));
-
-
-for (const file of commandsFiles) {
-   const commandFile = require(`./commands/${file}`);
-   bot.commands.set(commandFile.name, commandFile);
-}
-
-//commands handling
-bot.on("messageCreate", (msg: Message) => {
-   if (msg.author.bot) return;
-   if (msg.content.startsWith(PREFIX)) {
-      const [command, ...args] = msg.content
-         .trim()
-         .substring(PREFIX.length)
-         .toLowerCase()
-         .split(/\s+/);
-
-      switch (command) {
-         case "play":
-            bot.commands.get("play").execute(msg, args);
-            break;
-         default:
-            bot.commands.get("notFound").execute(msg, args);
-      }
-   }
-});
+const commandHandler = require("./commandHandler");
+bot.on("messageCreate", commandHandler);
 
 bot.on("ready", () => {
    console.log(`${bot.user.tag} is up`);

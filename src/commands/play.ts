@@ -5,5 +5,5 @@ export default {
     description: "Play music",
     execute(msg: Message, args: any) {
         msg.channel.send('Still not working LMAO')
-    }
+    },
 } 

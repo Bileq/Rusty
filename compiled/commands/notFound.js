@@ -7,3 +7,4 @@ exports.default = {
         msg.channel.send("This commands doesn't exist");
     }
 };
+//# sourceMappingURL=notFound.js.map

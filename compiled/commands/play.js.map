@@ -1,0 +1,1 @@
+{"version":3,"file":"play.js","sourceRoot":"","sources":["../../src/commands/play.ts"],"names":[],"mappings":";;AAEA,kBAAe;IACX,IAAI,EAAE,MAAM;IACZ,WAAW,EAAE,YAAY;IACzB,OAAO,CAAC,GAAY,EAAE,IAAS;QAC3B,GAAG,CAAC,OAAO,CAAC,IAAI,CAAC,wBAAwB,CAAC,CAAA;IAC9C,CAAC;CACJ,CAAA"}
