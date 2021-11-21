@@ -1,11 +1,14 @@
-const { Client, Intents, Collection } = require("discord.js");
+const { Client, Intents } = require("discord.js");
 import "dotenv/config";
 
 export const bot = new Client({
-   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES],
 });
-const commandHandler = require("./commandHandler");
+const { Player } = require("discord-music-player");
+const player = new Player(bot)
+bot.player = player
 
+const commandHandler = require("./commandHandler");
 bot.on("messageCreate", commandHandler);
 
 bot.on("ready", () => {
