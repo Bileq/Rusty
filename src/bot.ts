@@ -4,9 +4,8 @@ import "dotenv/config";
 export const bot = new Client({
    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
-bot.commands = new Collection();
-
 const commandHandler = require("./commandHandler");
+
 bot.on("messageCreate", commandHandler);
 
 bot.on("ready", () => {

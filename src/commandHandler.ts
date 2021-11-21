@@ -1,9 +1,11 @@
 // import { bot } from "./bot";
 import { Message } from "discord.js";
-import { bot } from './bot'
+import { bot } from './bot';
+const { Collection } = require('discord.js');
 const PREFIX = "!";
 
 //collection of commands
+bot.commands = new Collection();
 
 const fs = require("fs");
 const commandFiles = fs
@@ -27,7 +29,7 @@ module.exports = function (msg: Message) {
 
 
       switch (command) {
-         case "play":
+         case "p":
             bot.commands.get("play").execute(msg, args);
             break;
          default:

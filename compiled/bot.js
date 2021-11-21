@@ -6,7 +6,6 @@ require("dotenv/config");
 exports.bot = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
-exports.bot.commands = new Collection();
 const commandHandler = require("./commandHandler");
 exports.bot.on("messageCreate", commandHandler);
 exports.bot.on("ready", () => {
