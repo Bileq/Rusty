@@ -1,10 +1,9 @@
 // import { bot } from "./bot";
-import { Message } from "discord.js";
+// import { Message } from "@discordjs";
+const Message = require('discord.js')
 import { bot } from './bot';
 const { Collection } = require('discord.js');
 const PREFIX = "!";
-
-//collection of commands
 bot.commands = new Collection();
 
 const fs = require("fs");
@@ -18,20 +17,21 @@ for (const file of commandFiles) {
 }
 
 //commands handling
-module.exports = function (msg: Message) {
+module.exports = function (msg: any) {
    if (msg.author.bot) return;
    if (msg.content.startsWith(PREFIX)) {
       const [command, ...args] = msg.content
          .trim()
          .substring(PREFIX.length)
-         .toLowerCase()
          .split(/\s+/);
 
-
-      switch (command) {
-         case "p":
+      
+      switch (command.toLowerCase()) {
+         case 'play':
             bot.commands.get("play").execute(msg, args);
             break;
+         case 'playing':
+            bot.commands.get("isPlaying").execute(msg, args)
          default:
             bot.commands.get("notFound").execute(msg);
       }

@@ -17,11 +17,11 @@ export default {
         if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
             return message.channel.send("You don't have the correct permissions");
         }
-        
+    
         if (!args.length) return message.channel.send("Specify the song");
-
         let queue = bot.player.createQueue(message.guild.id);
         await queue.join(voiceChannel);
+
         let song = await queue.play(args.join(' ')).catch((_: any) => {
             if(!guildQueue)
                 queue.stop();
