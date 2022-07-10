@@ -1,12 +1,15 @@
 const Message = require('discord.js')
-// import { Message } from "discord.js";
+import { bot } from '../bot'
 
 export default {
    name: "isPlaying",
-   description: "What is currently being played",
+   description: "What is currently being played", 
    execute(msg: typeof Message) {
-      //export variable guildQueue
-      // msg.channel.send(`Now playing: ${guildQueue.nowPlaying}`);
-      msg.channel.send(`Now playing: song`);
-   },
+         let guildQueue = bot.player.getQueue(msg.guild.id);
+         if(!guildQueue || guildQueue.isPlaying == false) {
+            msg.channel.send("Nothing is playing")
+         } else {
+            msg.channel.send(`*Now playing:* \`${guildQueue.nowPlaying}\``);  
+         }
+      },
 };

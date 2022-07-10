@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const Message = require('discord.js');
 const bot_1 = require("./bot");
 const { Collection } = require('discord.js');
 const PREFIX = "!";
-//collection of commands
 bot_1.bot.commands = new Collection();
+//collection of commands
 const fs = require("fs");
 const commandFiles = fs
     .readdirSync("src/commands/")
@@ -23,14 +24,16 @@ module.exports = function (msg) {
         const [command, ...args] = msg.content
             .trim()
             .substring(PREFIX.length)
-            .toLowerCase()
             .split(/\s+/);
-        switch (command) {
-            case "p":
+        switch (command.toLowerCase()) {
+            case 'play':
                 bot_1.bot.commands.get("play").execute(msg, args);
                 break;
+            case 'playing':
+                bot_1.bot.commands.get("isPlaying").execute(msg, args);
+                break;
             default:
-                bot_1.bot.commands.get("notFound").execute(msg, args);
+                bot_1.bot.commands.get("notFound").execute(msg);
         }
     }
 };
