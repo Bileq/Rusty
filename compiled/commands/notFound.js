@@ -5,7 +5,7 @@ exports.default = {
     name: "notFound",
     description: "Command not found",
     execute(msg) {
-        msg.channel.send("This command doesn't exist");
+        msg.channel.send(`This command doesn't exist\nFor more help type: **\`!help\`**`);
     },
 };
 //# sourceMappingURL=notFound.js.map

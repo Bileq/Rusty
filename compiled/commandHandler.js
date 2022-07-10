@@ -39,33 +39,26 @@ module.exports = function (msg) {
                 bot_1.bot.commands.get("queue").execute(msg, args);
                 break;
             case 'loop':
-                bot_1.bot.commands.get("loop").execute(msg, args);
+                bot_1.bot.commands.get("loop").execute(msg);
                 break;
             case 'qloop':
-                bot_1.bot.commands.get("qloop").execute(msg, args);
+                bot_1.bot.commands.get("qloop").execute(msg);
                 break;
             case 'pause':
-                bot_1.bot.commands.get("pause").execute(msg, args);
+                bot_1.bot.commands.get("pause").execute(msg);
                 break;
             case 'resume':
-                bot_1.bot.commands.get("resume").execute(msg, args);
+                bot_1.bot.commands.get("resume").execute(msg);
                 break;
-            /*
-         case 'remove':
-            bot.commands.get("remove").execute(msg, args)
-            break;
-            */
             case 'clear':
-                bot_1.bot.commands.get("clear").execute(msg, args);
+                bot_1.bot.commands.get("clear").execute(msg);
                 break;
             case 'stop':
-                bot_1.bot.commands.get("stop").execute(msg, args);
+                bot_1.bot.commands.get("stop").execute(msg);
                 break;
-            /*
-         case 'help':
-            bot.commands.get('help').execute()
-            break;
-            */
+            case 'help':
+                bot_1.bot.commands.get('help').execute(msg);
+                break;
             default:
                 bot_1.bot.commands.get("notFound").execute(msg);
         }

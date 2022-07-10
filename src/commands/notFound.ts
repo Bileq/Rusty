@@ -4,6 +4,6 @@ export default {
    name: "notFound",
    description: "Command not found",
    execute(msg: typeof Message) {
-      msg.channel.send("This command doesn't exist");
+      msg.channel.send(`This command doesn't exist\nFor more help type: **\`!help\`**`);
    },
 };
