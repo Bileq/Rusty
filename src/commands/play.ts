@@ -24,9 +24,6 @@ export default {
         let song = await queue.play(args.join(' ')).catch((_: any) => {
             if(!guildQueue) queue.stop();
         });
-
-
-        return guildQueue
     },
 };
     

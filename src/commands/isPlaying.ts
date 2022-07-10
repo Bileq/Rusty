@@ -8,8 +8,7 @@ export default {
          let guildQueue = bot.player.getQueue(msg.guild.id);
          if(!guildQueue || guildQueue.isPlaying == false) {
             msg.channel.send("Nothing is playing")
-         } else {
-            msg.channel.send(`*Now playing:* \`${guildQueue.nowPlaying}\``);  
-         }
+         } else msg.channel.send(`*Now playing:* \`${guildQueue.nowPlaying}\``);  
+         
       },
 };

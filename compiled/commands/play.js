@@ -32,7 +32,6 @@ exports.default = {
                 if (!guildQueue)
                     queue.stop();
             });
-            return guildQueue;
         });
     },
 };

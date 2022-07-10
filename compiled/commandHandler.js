@@ -32,6 +32,9 @@ module.exports = function (msg) {
             case 'playing':
                 bot_1.bot.commands.get("isPlaying").execute(msg, args);
                 break;
+            case 'skip':
+                bot_1.bot.commands.get("skip").execute(msg, args);
+                break;
             default:
                 bot_1.bot.commands.get("notFound").execute(msg);
         }

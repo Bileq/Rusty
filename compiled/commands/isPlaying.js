@@ -10,9 +10,8 @@ exports.default = {
         if (!guildQueue || guildQueue.isPlaying == false) {
             msg.channel.send("Nothing is playing");
         }
-        else {
+        else
             msg.channel.send(`*Now playing:* \`${guildQueue.nowPlaying}\``);
-        }
     },
 };
 //# sourceMappingURL=isPlaying.js.map
