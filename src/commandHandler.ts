@@ -41,12 +41,20 @@ module.exports = function (msg: any) {
             case 'loop':
                bot.commands.get("loop").execute(msg, args)
                break;
+            case 'qloop':
+               bot.commands.get("qloop").execute(msg, args)
+               break;
             case 'pause':
                bot.commands.get("pause").execute(msg, args)
                break;
             case 'resume':
                bot.commands.get("resume").execute(msg, args)
                break;
+               /*
+            case 'remove':
+               bot.commands.get("remove").execute(msg, args)
+               break;
+               */
             case 'clear':
                bot.commands.get("clear").execute(msg, args)
                break;
