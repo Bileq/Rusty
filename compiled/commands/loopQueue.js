@@ -14,7 +14,6 @@ exports.default = {
             let repeatModeValue = guildQueue.repeatMode;
             repeatModeValue != 2 ? repeatModeValue = 2 : repeatModeValue = 0;
             guildQueue.setRepeatMode(repeatModeValue);
-            console.log(repeatModeValue);
             msg.channel.send(`Queue loop is: ${repeatModeValue == 2
                 ? `on`
                 : `off`}`);

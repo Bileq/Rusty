@@ -15,23 +15,28 @@ exports.default = {
     description: "Play music",
     execute(message, args) {
         return __awaiter(this, void 0, void 0, function* () {
-            const voiceChannel = message.member.voice.channel;
-            let guildQueue = bot_1.bot.player.getQueue(message.guild.id);
-            if (!voiceChannel) {
-                return message.channel.send("You need to be in a channel to execute this commands");
+            try {
+                const voiceChannel = message.member.voice.channel;
+                let guildQueue = bot_1.bot.player.getQueue(message.guild.id);
+                if (!voiceChannel) {
+                    return message.channel.send("You need to be in a channel to execute this commands");
+                }
+                const permissions = voiceChannel.permissionsFor(message.client.user);
+                if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
+                    return message.channel.send("You don't have the correct permissions");
+                }
+                if (!args.length)
+                    return message.channel.send("Specify the song");
+                let queue = bot_1.bot.player.createQueue(message.guild.id);
+                yield queue.join(voiceChannel);
+                let song = yield queue.play(args.join(' ')).catch((_) => {
+                    if (!guildQueue)
+                        queue.stop();
+                });
             }
-            const permissions = voiceChannel.permissionsFor(message.client.user);
-            if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
-                return message.channel.send("You don't have the correct permissions");
+            catch (_a) {
+                message.channel.send('Something went wrong');
             }
-            if (!args.length)
-                return message.channel.send("Specify the song");
-            let queue = bot_1.bot.player.createQueue(message.guild.id);
-            yield queue.join(voiceChannel);
-            let song = yield queue.play(args.join(' ')).catch((_) => {
-                if (!guildQueue)
-                    queue.stop();
-            });
         });
     },
 };
