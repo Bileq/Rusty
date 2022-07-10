@@ -38,6 +38,9 @@ module.exports = function (msg: any) {
             case 'q':
                bot.commands.get("queue").execute(msg, args)
                break;
+            case 'loop':
+               bot.commands.get("loop").execute(msg, args)
+               break;
             case 'pause':
                bot.commands.get("pause").execute(msg, args)
                break;
