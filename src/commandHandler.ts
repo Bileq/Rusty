@@ -38,6 +38,12 @@ module.exports = function (msg: any) {
             case 'q':
                bot.commands.get("queue").execute(msg, args)
                break;
+            case 'pause':
+               bot.commands.get("pause").execute(msg, args)
+               break;
+            case 'resume':
+               bot.commands.get("resume").execute(msg, args)
+               break;
             default:
                bot.commands.get("notFound").execute(msg);
          }
