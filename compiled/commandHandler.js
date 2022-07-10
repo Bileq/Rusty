@@ -44,6 +44,14 @@ module.exports = function (msg) {
             case 'resume':
                 bot_1.bot.commands.get("resume").execute(msg, args);
                 break;
+            case 'clear':
+                bot_1.bot.commands.get("clear").execute(msg, args);
+                break;
+            /*
+         case 'help':
+            bot.commands.get('help').execute()
+            break;
+            */
             default:
                 bot_1.bot.commands.get("notFound").execute(msg);
         }
