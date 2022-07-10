@@ -47,6 +47,9 @@ module.exports = function (msg: any) {
             case 'clear':
                bot.commands.get("clear").execute(msg, args)
                break;
+            case 'stop':
+               bot.commands.get("stop").execute(msg, args)
+               break;
                /*
             case 'help':
                bot.commands.get('help').execute()
