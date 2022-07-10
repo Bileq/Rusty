@@ -35,6 +35,9 @@ module.exports = function (msg) {
             case 'skip':
                 bot_1.bot.commands.get("skip").execute(msg, args);
                 break;
+            case 'q':
+                bot_1.bot.commands.get("queue").execute(msg, args);
+                break;
             default:
                 bot_1.bot.commands.get("notFound").execute(msg);
         }

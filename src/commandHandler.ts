@@ -35,11 +35,13 @@ module.exports = function (msg: any) {
             case 'skip':
                bot.commands.get("skip").execute(msg, args)
                break;
+            case 'q':
+               bot.commands.get("queue").execute(msg, args)
+               break;
             default:
                bot.commands.get("notFound").execute(msg);
          }
-      }
-      
+      } 
    };
 
 

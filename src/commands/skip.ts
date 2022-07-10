@@ -13,5 +13,5 @@ export default {
       : 
         guildQueue.skip();
         queue[1] && msg.channel.send(`*Now playing:* \`${queue[1]}\``);
-  },
+  }
 };
